@@ -1,8 +1,3 @@
----
-title: "React Redux Password Strength"
-slug: react-redux-password-strength
----
-
 # What makes a strong password? 
 
 Good question! Passwords, as a subject, are worthy of an entire class! 
