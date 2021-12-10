@@ -1,8 +1,3 @@
----
-title: "React Redux Generating Passwords"
-slug: react-redux-generating-passwords
----
-
 # Generating Passwords
 
 There is a use case for apps that save and store passwords. There is also plenty to 
