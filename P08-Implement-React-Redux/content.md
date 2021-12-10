@@ -1,8 +1,3 @@
----
-title: "React Redux Implement React Redux"
-slug: react--implement-redux-react-redux
----
-
 # Implement React Redux
 
 The following steps implement React Redux in a react project.
@@ -269,7 +264,9 @@ Add a new value and setter for the name:
 const [name, setName] = useState('')
 ```
 
-Add a new input field to show and edit this value. This should go above the password input in the render method. 
+Add a new input field to show and edit this value. This should go above the password input in the 
+
+method. 
 
 ```JavaScript 
 <input
@@ -296,7 +293,7 @@ function Password() {
 }
 ```
 
-Add a button that does this within the render method:
+Add a button that does this within the JSX block of the component:
 
 ```JSX
 <div>
