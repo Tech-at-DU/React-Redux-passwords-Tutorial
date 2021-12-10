@@ -1,8 +1,3 @@
----
-title: "React Redux Controlled Components"
-slug: react-redux-controlled-components
----
-
 # What is a controlled Component? 
 
 Controlled Component is a name used to describe form elements 
