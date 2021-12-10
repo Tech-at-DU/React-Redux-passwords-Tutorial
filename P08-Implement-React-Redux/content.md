@@ -209,7 +209,7 @@ Create a new component that will display a list of passwords. Create a new
 file: 'src/password-list.js'.
 
 ```JSX
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect, useSelector } from 'react-redux'
 
 function PasswordList() {
@@ -255,7 +255,7 @@ Open the Password Component. Edit the component to add a new value on state that
 Use a hook to keep track the value in the field:
 
 ```JavaScript
-import React, { useState } from 'react'
+import { useState } from 'react'
 ```
 
 Add a new value and setter for the name: 
