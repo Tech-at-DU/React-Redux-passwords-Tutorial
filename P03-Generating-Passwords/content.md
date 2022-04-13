@@ -48,7 +48,7 @@ Define a new React component in this file.
 ```JavaScript
 import React, { useState } from 'react'
 
-generatePassword() {
+function generatePassword() {
   // generate a password here
   console.log("generating password")
 }
