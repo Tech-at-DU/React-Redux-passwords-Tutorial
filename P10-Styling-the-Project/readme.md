@@ -1,7 +1,4 @@
----
-title: "React Redux Styling the Project"
-slug: react-redux-styling-the-project
----
+# React Redux Styling the Project
 
 # Styling the Project
 

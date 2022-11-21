@@ -16,6 +16,8 @@ Here is a library that rates passwords:
 
 - https://github.com/dropbox/zxcvbn
 
+This provides a score showing how strong a password is. 
+
 ## Challenges 
 
 Evaluate and dipslay the password strength. 

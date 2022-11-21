@@ -1,16 +1,11 @@
----
-title: "React Redux Introduction"
-slug: react-redux-introduction
----
+# React Redux Introduction
 
 This tutorial creates a small app using React and Redux. The goal of the app 
 is to generate random passwords and store passwords generated. 
 
-The project can be built with React or React Native. The tutorial will use React. 
-
 Code will be written with ES6 version of JavaScript. 
 
-Data will be stored with local storage. 
+Internally application state will be managed with Redux. The application will also persist it's data with local storage so that it can return to it's previous state when it is relaunched. 
 
 # Prerequisites 
 
@@ -24,8 +19,7 @@ Some understanding of the ES6 version of JS will also be helpful.
 
 # Introduction 
 
-The goal of this tutorial is to create an app that generates randomized passwords, and keeps
-a store of these passwords locally on your device. 
+The goal of this tutorial is to create an app that generates randomized passwords, and keeps a store of these passwords locally on your device. 
 
 ## Concepts Covered
 
