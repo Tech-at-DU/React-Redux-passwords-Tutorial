@@ -33,6 +33,9 @@ To create this project you will need an understanding of
 7. [Actions and Reducers](P06-Actions-and-Reducers)
 8. [Adding names and passwords](P07-Adding-names-and-passwords)
 9. [Password Strength](P08-Password-Strength)
+10. [Local Storage](P09-Local-Storage)
+11. [Styling the Project](P10-Styling-the-Project)
+12. [Pivot Challenges](P11-Pivot-Challenges)
 
 ## Instructor FAQ
 
