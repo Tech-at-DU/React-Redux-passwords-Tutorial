@@ -244,26 +244,4 @@ Generate a password made up of 4 to 8 words. For example:
 - Advanced topics 
   - [Array Like Objects](http://www.nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/)
 
-
-## Topics Covered
-
-- JavaScript
-  - Number
-  - Math.random()
-  - Math.floor()
-  - Math.ceil()
-  - Math.round()
-  - String
-    - length
-    - character at
-- Hacking and Security
-  - Password generation
-  - Password security issues
   
-  
-
-
-
-
-
-
