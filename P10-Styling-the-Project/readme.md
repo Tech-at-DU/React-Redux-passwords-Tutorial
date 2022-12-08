@@ -15,7 +15,7 @@ still more options for CSS.
 
 ### Traditional Stylesheets
 
-Stylesheet, like traditional web pages React apps can 
+Stylesheets, like traditional web pages, React apps can 
 use a stylesheet with class tag names, class names, ids,
 etc. 
 
@@ -33,14 +33,14 @@ Easy to share styles across elements.
 Not portable, it's difficult to move these styles to 
 another project.
 
-Styles for components are mixed with entire stylesheet. 
+Styles for components are mixed with the entire stylesheet. 
 This could make it hard to edit or share move these 
 to another project. 
 
 ### Import Styles
 
 Create React App uses Webpack for preprocessing. One of
-the built in preprocessing scripts converts CSS files 
+the built-in preprocessing scripts convert CSS files 
 imported into Components to style tags in the head of 
 the document. 
 
@@ -52,12 +52,12 @@ components to become portable.
 **Pros**
 
 Components are portable. Styles and component files 
-can be grouped together and moved from one project 
+can be grouped and moved from one project 
 to another. 
 
 **Cons**
 
-Requires the Webpack be set up to handle this. 
+Requires the Webpack to be set up to handle this. 
 
 ### Inline Styles
 
@@ -75,19 +75,19 @@ Very portable, styles are written into the file
 where they are used. 
 
 Styles can be calculated via JavaScript. This allows 
-intersting options not available to regular CSS. 
+interesting options not available to regular CSS. 
 
 **Cons**
 
 Adding styles to your component files tend to make 
-thos files larger and more code heavy. 
+those files are larger and more code-heavy. 
 
 Inline styles Aren't shared so you'll end up with 
 more source code, and code that is less DRY. 
 
 ## Examples 
 
-These examples will all take style a button. We 
+These examples will all take style as a button. We 
 will take style the same button with the same 
 styles. 
 
@@ -101,28 +101,28 @@ in react Components.
 
 ```jsx
 <button 
-  className='button'
-  ...
+ className='button'
+ ...
 >Generate</button>
 ```
 
 In 'index.css' just style the 'button' class!
 
-```css
+```CSS
 .button {
-  width: 100%;
-  margin: 0.5em 0;
-  padding: 0.5em;
-  border: 4px solid #4687D3;
-  border-radius: 6px;
-  background: #4A90E2;
-  color: #fff;
+ width: 100%;
+ margin: 0.5em 0;
+ padding: 0.5em;
+ border: 4px solid #4687D3;
+ border-radius: 6px;
+ background: #4A90E2;
+ color: #fff;
 }
 ```
 
 Done! That was easy. Realize that you will 
 need to dig through this stylesheet to change 
-the style for this button, it will buried in 
+the style for this button will be buried in 
 amongst all of the other styles you write. 
 
 If you were to move this component to another
@@ -131,7 +131,7 @@ and move them into the new project.
 
 ### Import StyleSheet
 
-In this case you will make a new stylesheet that 
+In this case, you will make a new stylesheet that 
 will be imported into a component. It's a good 
 idea to name this with the name of the component. 
 
@@ -139,15 +139,15 @@ Make a new file: 'src/password.css'
 
 Add the styles here: 
 
-```css
+```CSS
 .button {
-  width: 100%;
-  margin: 0.5em 0;
-  padding: 0.5em;
-  border: 4px solid #4687D3;
-  border-radius: 6px;
-  background: #4A90E2;
-  color: #fff;
+ width: 100%;
+ margin: 0.5em 0;
+ padding: 0.5em;
+ border: 4px solid #4687D3;
+ border-radius: 6px;
+ background: #4A90E2;
+ color: #fff;
 }
 ```
 
@@ -162,14 +162,14 @@ this:
 
 ```
 - src
-  - components
-    - password
-      - password.css
-      - password.js
+ - components
+ - password
+ - password.css
+ - password.js
 ```
 
-With this arrangement you can move the password 
-component complete with it's styles by moving 
+With this arrangement, you can move the password 
+component complete with its styles by moving 
 the folder!
 
 **Important! This only works with the correct
@@ -181,22 +181,22 @@ The last strategy is to use inline styles.
 The idea is to create a JavaScript Object 
 containing the CSS properties and values, 
 assigning this to the style property of a
-react component. Try it for youself. 
+react component. Try it for yourself. 
 
 In file 'src/password.js', not in the class. 
 Define an Object to hold the style properties. 
 
 ```JavaScript
 const styles = {
-  button: {
-    width: '100%',
-    margin:'0.5em 0',
-    padding: '0.5em',
-    border: '4px solid #4687D3',
-    borderRadius: '6px',
-    background: '#4A90E2',
-    color: '#fff'
-  }
+ button: {
+ width: '100%',
+ margin:'0.5em 0',
+ padding: '0.5em',
+ border: '4px solid #4687D3',
+ borderRadius: '6px',
+ background: '#4A90E2',
+ color: '#fff'
+ }
 }
 ```
 
@@ -209,17 +209,17 @@ Notice the property names are similar to the
 CSS property names. Notice 'border-radius' is 
 'borderRadius' here. 
 
-All CSS properties have a JavaScript equivelent. 
-The javaScript version of a CSS property is the
+All CSS properties have a JavaScript equivalent. 
+The JavaScript version of a CSS property is the
 CSS name in camel case. 
 
-Assign these styles to button. 
+Assign these styles to the button. 
 
 ```JSX
 <button
-  style={styles.button}
-  ...
-  }}>Save</button>
+ style={styles.button}
+ ...
+ }}>Save</button>
 ```
 
 Should work the same as the previous two examples. 

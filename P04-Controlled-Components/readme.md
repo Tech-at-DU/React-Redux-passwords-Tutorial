@@ -8,11 +8,11 @@ https://reactjs.org/docs/forms.html#controlled-components
 
 ## The virtual DOM
 
-The DOM is Document Object Model, it is the structure of nodes or elements created from the an HTML document. 
+The DOM is Document Object Model is the structure of nodes or elements created from the an HTML document. 
 
 Traversing and modifying elements in the DOM, like updating the text/html content of an element is a slow operation in the browser. 
 
-React solves this speed issue by creating a virtual DOM that holds the structure of the document in JavaScript. Changes to the virtual DOM are much faster than making changes to DOM directly. 
+React solves this speed issue by creating a virtual DOM holds the structure of the document in JavaScript. Changes to the virtual DOM are much faster than making changes to DOM directly. 
 
 When the DOM needs to be changed the React uses a diffing algorithm to identify which elements need to be changed, and applies changes to only those elements in the DOM. 
 
@@ -22,9 +22,9 @@ https://reactjs.org/docs/faq-internals.html
 
 ## The Controlled Component Pattern
 
-Inputs (as in `<input type="text">`) hold the value that was entered and if these components are replaced the when the virtual DOM renders a component the value entered will be lost. The controlled component pattern solves this problem by storing the value entered in a react state variable. 
+Inputs (as in `<input type="text">`) hold the value that was entered and if these components are replaced when the virtual DOM renders a component the value entered will be lost. The controlled component pattern solves this problem by storing the value entered in a react state variable. 
 
-Here's how the controlled component pattern soplves this problem. Imagine an input element (input tag) inside of one your components. As you enter text to the input the following steps occur in your software.  
+Here's how the controlled component pattern soplves this problem. Imagine an input element (input tag) inside of one your components. As you enter text, the following steps occur in your software. 
 
 1. When the value in the input element is changed this triggers an `onChange` event. 
 2. `onChange` handler sets a value in state on the component. 
@@ -36,22 +36,22 @@ Try it out. Add the following to the `Password` Component.
 
 ```JSX
 function Password() {
-  const [password, setPassword] = useState('p@$$w0rd')
+ const [password, setPassword] = useState('p@$$w0rd')
  
-  return (
-    <div>
-      <input 
-				type="text"
-				onChange={(e) => setPassword(e.target.value)}
-				value={password}
-			/>
-      <div>
-        <button onClick={(e) => {
-          generatePassword()
-        }}>Generate</button>
-      </div>
-    </div>
-  )
+ return (
+ <div>
+ <input 
+ type="text"
+ onChange={(e) => setPassword(e.target.value)}
+ value={password}
+ />
+ <div>
+ <button onClick={(e) => {
+ generatePassword()
+ }}>Generate</button>
+ </div>
+ </div>
+ )
 }
 ```
 
@@ -61,7 +61,7 @@ Notice the input element has an onChange function. When a change occurs it sets 
 
 `onChange={(e) => setPassword(e.target.value)}}`
 
-When the component is redrawn the value of the input is set to the `password` state.  
+When the component is redrawn the value of the input is set to the `password` state. 
 
 `value={password}`
 
@@ -82,7 +82,7 @@ Besure to declare a new state variable for the name!
 ### Stretch Challenges
 
 **Stretch Challenge 1**
-Add an input, range, or select element that let's us choose the length of the pasword. This set the number of random characters that are generated. 
+Add an input, range, or select element that let's us choose the length of the pasword. This sets the number of random characters that are generated. 
 
 **Stretch Challenge 2**
 Add a check box that indicates whether the password generated should contain hyphens between every 3rd character. e.g.

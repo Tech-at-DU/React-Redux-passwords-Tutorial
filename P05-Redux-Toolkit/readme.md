@@ -10,7 +10,7 @@ Install dependencies.
 npm install @reduxjs/toolkit react-redux
 ```
 
-(You can also start a new project with redux toolkit using
+(You can also start a new project with Redux Toolkit using
 
 Setup
 
@@ -26,7 +26,7 @@ export const store = configureStore({
 })
 ```
 
-This file defines your Redux store. This is where application state is defined and updated. 
+This file defines your Redux store. This is where the application state is defined and updated. 
 
 Modify `src/index.js`
 
@@ -49,13 +49,13 @@ root.render(
 );
 ```
 
-Your components need to access the store. You'll do that by passing it through the `Provider` component, it will be accessible to all descendents of this component. 
+Your components need to access the store. You'll do that by passing it through the `Provider` component, it will be accessible to all descendants of this component. 
 
-## Creating Slices, exporting Actions and Reducers
+## Creating Slices, exporting Actions, and Reducers
 
 Create a new folder `src/features`
 
-For each slice of state you define you'll add a folder and a file to manage it. A slice is one value of Application state. For this Application our slice will be `passwords`, and it will be a list/array of passwords.
+For each slice of state you define you'll add a folder and a file to manage it. A slice is one value of the Application state. For this Application the slice will be `passwords`, it will be a list/array of passwords.
 
 Think of state as an Object and a slice being one property on that object. 
 
@@ -65,13 +65,13 @@ Now create a file that will define the actions and reducers for this slice: `fea
 
 **What's an action?**
 
-An action is a "message" that your application can send that will trigger a change in application state. 
+An action is a "message" that your application can send that will trigger a change in the application state. 
 
-In practical terms an action is a function you can call that will trigger a change in application state. An action might take arguments that are new values to store in the Redux store. 
+In practical terms, an action is a function you can call that will trigger a change in the application state. An action might take arguments, these might be new values to store in the Redux store. 
 
 **What's a reducer?** 
 
-A reducer is a function that handles changes to application state. 
+A reducer is a function that handles changes to the application state. 
 
 A reducer receives an action and uses that action to decide how state will be changed. 
 
@@ -79,21 +79,22 @@ Update `app/store.js`
 
 ```JS
 import { configureStore } from '@reduxjs/toolkit'
-import passwordsReducer from '../feeatures/passwords/passwordsSlice'
+import passwordsReducer from '../features/passwords/passwordsSlice'
 
 export const store = configureStore({
   reducer: {
-		passwords: passwordsReducer
-	},
+    passwords: passwordsReducer
+  },
 })
 ```
 
-With this in place our application can store and update the list of passwords. It will not make changes to the list yet.
+With this in place, our application can store and update the list of passwords. It will not make changes to the list yet.
 
 ## Testing your work
 
-If your app is compiling without error it should be working even though it won't be doing anything new you can see, yet! In the next step you'll be able to effects of all of the work you've done here. 
+If your app is compiling without error it should be working even though it won't be doing anything new you can see, yet! In the next step, you'll be able to effects of all of the work you've done here. 
 
 ## Resources
 
 -
+

@@ -1,6 +1,6 @@
 # Adding names and passwords
 
-Edit `src/Password.js`, declare a new state variable for name. 
+Edit `src/Password.js`, and declare a new state variable name. 
 
 ```JS
 ...
@@ -9,7 +9,6 @@ const [name, setName] = useState('')
 
 ...
 ```
-
 
 Add a new input element that displays and sets name: 
 
@@ -37,6 +36,6 @@ test your work. You should be able to enter both name and password. Clicking the
 
 ## Test your work
 
-At this stage enerting a name and password into the fields and clicking save should add the new object to the store and cause the list component to update and redner the new element. 
+At this stage entering a name and password into the fields and clicking save should add the new object to the store and cause the list component to update and render the new element. 
 
-Refreshing the page should start the app over again and delete all of your data. This happens because the store stored in RAM. We'd like the data to be saved and loaded again when the app is reloaded. To do that you'll use localstorage in an upcoming step. 
+Refreshing the page should start the app over again and delete all of your data. This happens because the store is stored in RAM. We'd like the data to be saved and loaded again when the app is reloaded. To do that you'll use `localstorage` in an upcoming step. 

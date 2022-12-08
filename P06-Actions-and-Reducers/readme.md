@@ -1,28 +1,28 @@
 # Actions and Reducers
 
-Actions and reducers are how Redux handles changes to application state. You send an action from any component. The action is received by a reducer that makes the change to state. 
+Actions and reducers are how Redux handles changes to the application state. You send an action from any component. The action is received by a reducer that makes the change to the state. 
 
 **In redux no change to the store can be made without sending an action to the dispatcher!** 
 
-There are two things that you need to do to see your application state working. You need to display the contents of the passwords list that is stored in the store. Second you need to send actions that will add new passwords to the list. 
+There are two things that you need to do to see your application state working. You need to display the contents of the password list that is stored in the store. Second, you need to send actions that will add new passwords to the list. 
 
 ## Displaying a list of passwords
 
-Create a new component: `src/PasswordsList.js`, add the following: 
+Create a new component: `src/PasswordsList.js`, and add the following: 
 
 ```JS
 import { useSelector } from 'react-redux'
 
 function PasswordsList() {
-	const passwords = useSelector(state => state.passwords.value)
+  const passwords = useSelector(state => state.passwords.value)
 
-	return (
-		<ul>
-			{passwords.map(password => (
-				<li>{password}</li>
-			))}
-		</ul>
-	)
+  return (
+    <ul>
+      {passwords.map(password => (
+        <li>{password}</li>
+      ))}
+    </ul>
+  )
 }
 
 export default PasswordsList
@@ -30,7 +30,7 @@ export default PasswordsList
 
 This component displays everything in the passwords list stored in our Redux store. 
 
-It uses `useSelector()` to get `state` from the Redux store. This has all of out application state. Since this component is only concerned with the `passwords` list we use `state.passwords.value` to get that list. 
+It uses `useSelector()` to get `state` from the Redux store. This has all of our application state. Since this component is only concerned with the `passwords` list we use `state.passwords.value` to get that list. 
 
 The rest of the component is standard React and displays the list as `<ul>` and `<li>`. 
 
@@ -38,7 +38,7 @@ You can test this by updating the `initialState` in `features/passwords/password
 
 ```JS
 const initialState = {
-  value: ['helloPassword', 'ABCDEF'],
+ value: ['helloPassword', 'ABCDEF'],
 }
 ```
 
@@ -46,7 +46,7 @@ You should see the new item displayed on your page.
 
 ## Adding new passwords
 
-To add a new password you need to send an action. You'll do this by importing the actions fromyour slice and calling the action from inside one of your components. 
+To add a new password you need to send an action. You'll do this by importing the actions from your slice and calling the action from inside one of your components. 
 
 Edit `src/Password.js`, import `useDisptach`, and an action from your slice at the top:
 
@@ -63,9 +63,9 @@ At the top of the component function call `useDispatch` to get the dispatcher:
 ...
 
 function Password() {
-	const dispatch = useDispatch()
+ const dispatch = useDispatch()
 
-  ...
+ ...
 ```
 
 Make a button that will save the current password to the Redux store. You can place this button at the JSX block returned from the component. 
@@ -82,9 +82,9 @@ Make a button that will save the current password to the Redux store. You can pl
 
 Notice here you are handling the button click by calling the `addPassword()` function and passing the `password` as an argument. The value returned from this is passed to the `dispatch()` function as an argument. **Study the code snippet until you recognize what this paragraph is describing before moving on!**
 
-Testing your code at this stage should create add new passwords to the list, as if by magic! Notice there is no direct connection between the `Password` component and the `PasswordsList` components!
+Testing your code at this stage should create and add new passwords to the list, as if by magic! Notice there is no direct connection between the `Password` component and the `PasswordsList` components!
 
-Your data is being passes to Redux where the reducer you wrote, as part of the `PasswordsSlice`. 
+Your data is being passed to Redux where the reducer you wrote, as part of the `PasswordsSlice`. 
 
 When the store updates you're components are notified and they update. When updating the `PasswordsList` component gets the list of passwords from the store with `useSelector()`, which returns `state`. 
 
@@ -94,7 +94,7 @@ When the store updates you're components are notified and they update. When upda
 
 Saving the password string is not very useful. It would be better to also save a name or label along with the password string. 
 
-To do this you'll need to store objects instead of strings to the passwords array. 
+To do this you'll need to store objects instead of strings in the passwords array. 
 
 Currently `passwords` looks like: 
 

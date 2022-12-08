@@ -2,23 +2,23 @@
 
 # Local Storage
 
-At this stage your app should keep track of passwords but the list is lost when then app is refreshed. That's because all of the data is stored in memory. The browser gives an easy way for web sites to store data locally on a users computer: localstorage. 
+At this stage, your app should keep track of passwords but the list is lost when the app is refreshed. That's because all of the data is stored in memory. The browser gives an easy way for websites to store data locally on a user's computer: `localstorage`. 
 
-Localstorage stores key value pairs that are accessible to we site by it's domain. Here are a couple facts about localstorage: 
+Local storage stores key-value pairs that are accessible to we site by its domain. Here are a couple of facts about `localstorage`: 
 
-- local storage is stores data locally and not in the cloud. You will have access to the data on the computer where it was saved. 
-- Local storage stores access data by the domain. That means that websites that are loaded from another domain will not have access to the data stored by a app running on a different domain. 
-- Local storage is saved for ever but can be cleared by clearing the browsers cahce. 
-- Local storage stores key value pairs and values are stored as strings. This limits what can be stored. 
+- local storage stores data locally and not in the cloud. You will have access to the data on the computer where it was saved. 
+- Local storage stores access data by the domain. That means that websites that are loaded from another domain will not have access to the data stored by an app running on a different domain. 
+- Local storage is saved forever but can be cleared by clearing the browser's cache. 
+- Local storage stores key-value pairs and values are stored as strings. This limits what can be stored. 
 
-Local storage is not meant to be secure. Other web sites should not be able to read data stored by your site, but anyone sitting at your computer can inspect the cahce. 
+Local storage is not meant to be secure. Other websites should not be able to read data stored by your site, but anyone sitting at your computer can inspect the cache. 
 
-Sounds like we may have pivot on the this product! But more on this at the end of the tutorial...
+Sounds like we may have to pivot on this product! But more on this at the end of the tutorial...
 
 ## `localStorage`
 
 `localStorage` has two methods `getItem` and `setItem`. The first
-retrieves data saved to `locaLstorage`, the second saves data to 
+retrieves data saved to `locaStorage`, and the second save data to 
 the local store. 
 
 ### `localStorage.setItem()`
@@ -84,15 +84,15 @@ export const saveState = (state) => {
 }
 ```
 
-The first method loads state from the key defined on line 1. If there is nothing stored for that key it returns `undefined`. 
+The first method loads the state from the key defined on line 1. If there is nothing stored for that key it returns `undefined`. 
 
-The second method takes `state` as a parameter serializes this into a JSON string and saves that to local storage with the key defined on line 1. Here we `try` the operation and catchany errors that occur. 
+The second method takes `state` as a parameter serializes this into a JSON string and saves that to local storage with the key defined on line 1. Here we `try` the operation and catch any errors that occur. 
 
 An error will occur if the data can not be serialized for some reason. 
 
 Note! In both functions, when we call `setItem()` and `getItem()` you supply a string which is the key that was used to store the data. You're saving the same key that you're reading the data with, so get the same data you saved. 
 
-With these two methods in place you can save and retrieve data to and from localstorage. 
+With these two methods in place, you can save and retrieve data to and from localstorage. 
 
 ## Saving data as JSON
 
@@ -100,7 +100,7 @@ Since the Redux store is a JavaScript object you can pass it to `saveState()` an
 
 JSON is a string format that can be converted to and from a JavaScript object.
 
-Note! The JSON format doesn't support all of the features of JS objects! values in JSON can be strings, numbers, boolean, null, array, or object. JSON Does not support functions! You can't save functions to JSON Objects. 
+Note! The JSON format doesn't support all of the features of JS objects! values in JSON can be strings, numbers, boolean, null, array, or objects. JSON Does not support functions! You can't save functions to JSON Objects. 
 
 ## Initializing and saving state
 
@@ -116,25 +116,25 @@ Next, edit the store where you called `configureStore`:
 ```JS
 export const store = configureStore({
   reducer: {
-		passwords: passwordsReducer
-	},
-	preloadedState: loadState() 
+    passwords: passwordsReducer
+  },
+  preloadedState: loadState() 
 })
 ```
 
-I added a new property: `preloadState`. This allows to set the default state of the store when it is initialized. Here you called `loadState` which should load the data and return an object or return `undefined` if there is nothing to load. 
+I added a new property: `preloadState`. This allows you to set the default state of the store when it is initialized. Here you called `loadState` which should load the data and return an object or return `undefined` if there is nothing to load. 
 
 Now add the following:
 
 ```JS
 store.subscribe(() => {
-	saveState(store.getState());
+  saveState(store.getState());
 })
 ```
 
 Here you are subscribing to the store. This gives us a hook that is triggered when the store is updated. Here you supply a callback for the store to call each time it updates. 
 
-In the callback you're calling `saveState` and passing the state as an argument! Notice that you call `getState` on the store to get the state object that has the data that was stored. 
+In the callback, you're calling `saveState` and passing the state as an argument! Notice that you call `getState` on the store to get the state object that has the data that was stored. 
 
 ## Resouces 
 

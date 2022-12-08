@@ -5,7 +5,7 @@ is to generate random passwords and store passwords generated.
 
 Code will be written with ES6 version of JavaScript. 
 
-Internally application state will be managed with Redux. The application will also persist it's data with local storage so that it can return to it's previous state when it is relaunched. 
+Internally application state will be managed with Redux. The application will also persist its data with local storage so that it can return to its previous state when it is relaunched. 
 
 # Prerequisites 
 
@@ -19,7 +19,7 @@ Some understanding of the ES6 version of JS will also be helpful.
 
 # Introduction 
 
-The goal of this tutorial is to create an app that generates randomized passwords, and keeps a store of these passwords locally on your device. 
+The goal of this tutorial is to create an app that generates randomized passwords and keeps a store of these passwords locally on your device. 
 
 ## Concepts Covered
 
@@ -32,8 +32,8 @@ The goal of this tutorial is to create an app that generates randomized password
   - Class objects and OOP
 - Redux and React Redux
   - Managing Application state with the Flux pattern
-  
-  ## Resources
-  
-  - https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445
+ 
+ ## Resources
+ 
+ - https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445
 
