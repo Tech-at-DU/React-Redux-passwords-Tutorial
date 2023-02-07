@@ -71,9 +71,11 @@ export default passwordsSlice.reducer
 
 redux Toolkit uses the term "slice" to represent a piece of state in the store. A slice has actions and reducers. A slice handles one of the values on state. The slice includes an action and a reducer. The action is used to initiate a change to the slice and the reducer receives the action and makes the change. InitialState sets the initial value for a slice. 
 
+Notice that you exported "addPassword" and "passwordSlice.reducer" at the bottom. You will be using these in other parts of the application. 
+
 Here you added the "passwords" slice, "addPassword" is the action, it's a function you can call, this function is the reducer. A reducer always takes state and an action and makes chanegs to state in its code block.  
 
-For this application there is a single reducer: `addPassword`. The function takes the name and password as strings, it creates a new password object and adds to the lit of passwords that are stored on state. 
+For this application there is a single reducer: `addPassword`. The function takes the name and password as strings, it creates a new password object and adds to the list of passwords that are stored on state. 
 
 ## Adding new passwords
 
