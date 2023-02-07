@@ -140,6 +140,37 @@ const initialState = {
 }
 ```
 
+## Adding reducer and actions
+
+```JS
+import { createSlice } from '@reduxjs/toolkit' // 1
+
+// 2
+const initialState = {
+  value: [{ password: 'hello', name: 'test'}],
+}
+
+// 3 Add the password slice
+export const passwordsSlice = createSlice({
+	name: 'passwords',
+	initialState,
+	reducers: {
+		addPassword: (state, action) => {
+			state.value.push(action.payload)
+		}
+	}
+})
+
+export const { addPassword } = passwordsSlice.actions
+export default passwordsSlice.reducer
+```
+
+Here you added the passwordslice. The slice has the initial state and reducers. Reducewrs are repsosible for changes to state. 
+
+For this application there is a single reducer: `addPassword`. The function takes the name and password as strings, it creates a new password object and adds to the lit of passwords that are stored on state. 
+
+## Test your work
+
 Edit the `src/PasswordsList.js`:
 
 ```JS
