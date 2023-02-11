@@ -6,44 +6,6 @@ Actions and reducers are how Redux handles changes to the application state. You
 
 There are two things that you need to do to see your application state working. You need to display the contents of the password list that is stored in the store. Second, you need to send actions that will add new passwords to the list. 
 
-## Displaying a list of passwords
-
-Create a new component: `src/PasswordsList.js`, and add the following: 
-
-```JS
-import { useSelector } from 'react-redux'
-
-function PasswordsList() {
-  const passwords = useSelector(state => state.passwords.value)
-
-  return (
-    <ul>
-      {passwords.map(password => (
-        <li>{password}</li>
-      ))}
-    </ul>
-  )
-}
-
-export default PasswordsList
-```
-
-This component displays everything in the passwords list stored in our Redux store. 
-
-It uses `useSelector()` to get `state` from the Redux store. This has all of our application state. Since this component is only concerned with the `passwords` list we use `state.passwords.value` to get that list. 
-
-The rest of the component is standard React and displays the list as `<ul>` and `<li>`. 
-
-You can test this by updating the `initialState` in `features/passwords/passwordsSlice.js`. Try it for yourself. Add another string here: 
-
-```JS
-const initialState = {
- value: ['helloPassword', 'ABCDEF'],
-}
-```
-
-You should see the new item displayed on your page. 
-
 ## Adding reducer and actions
 
 ```JS
@@ -172,6 +134,44 @@ const initialState = {
   value: [],
 }
 ```
+
+## Displaying a list of passwords
+
+Create a new component: `src/PasswordsList.js`, and add the following: 
+
+```JS
+import { useSelector } from 'react-redux'
+
+function PasswordsList() {
+  const passwords = useSelector(state => state.passwords.value)
+
+  return (
+    <ul>
+      {passwords.map(password => (
+        <li>{password}</li>
+      ))}
+    </ul>
+  )
+}
+
+export default PasswordsList
+```
+
+This component displays everything in the passwords list stored in our Redux store. 
+
+It uses `useSelector()` to get `state` from the Redux store. This has all of our application state. Since this component is only concerned with the `passwords` list we use `state.passwords.value` to get that list. 
+
+The rest of the component is standard React and displays the list as `<ul>` and `<li>`. 
+
+You can test this by updating the `initialState` in `features/passwords/passwordsSlice.js`. Try it for yourself. Add another string here: 
+
+```JS
+const initialState = {
+ value: ['helloPassword', 'ABCDEF'],
+}
+```
+
+You should see the new item displayed on your page. 
 
 ## Test your work
 
