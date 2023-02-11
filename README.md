@@ -1,4 +1,4 @@
-# Web 7 - Passwords Tutorial
+# React + Redux Toolkit - Passwords Tutorial
 
 This tutorial uses React and Redux to create a password generator and storage app. 
 
