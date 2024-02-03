@@ -56,9 +56,17 @@ Here you added the "passwords" slice, "addPassword" is the action, it's a functi
 
 For this application there is a single reducer: `addPassword`. The function takes the name and password as strings, it creates a new password object and adds to the list of passwords that are stored on state. 
 
+## Working with State 
+
+One of the main advantages to using redux is that it allows you to access and update your application state from anywhere without having to pass values with props. 
+
+- To access state from any component you can use the `useSelector` hook.
+- To update state from any component you can use the `useDispatch` hook and one of your actions. (Remember, you can only change state with an action!)
+- When the redux state is updated and components that use values from state will render and update their view. 
+
 ## Adding new passwords
 
-To add a new password you need to send an action. You'll do this by importing the actions from your slice and calling the action from inside one of your components. 
+To add a new password you need to send an action with the `useDispatch` hook. You'll do this by importing the actions from your slice and calling the action from inside one of your components. 
 
 Edit `src/Password.js`, import `useDisptach`, and an action from your slice at the top:
 
@@ -92,7 +100,9 @@ Make a button that will save the current password to the Redux store. You can pl
 ...
 ```
 
-Notice here you are handling the button click by calling the `addPassword()` function and passing the `password` as an argument. The value returned from this is passed to the `dispatch()` function as an argument. **Study the code snippet until you recognize what this paragraph is describing before moving on!**
+Notice here you are handling the button click by calling the `addPassword()` function and passing the `password` as an argument. The value returned from this is passed to the `dispatch()` function as an argument. 
+
+**Study the code snippet until you recognize what this paragraph is describing before moving on!**
 
 Testing your code at this stage should create and add new passwords to the list, as if by magic! Notice there is no direct connection between the `Password` component and the `PasswordsList` components!
 
@@ -160,7 +170,7 @@ Create a new component: `src/PasswordsList.js`, and add the following:
 import { useSelector } from 'react-redux'
 
 function PasswordsList() {
-  const passwords = useSelector(state => state.passwords.value)
+  const passwords = useSelector(state => state.value)
 
   return (
     <ul>
