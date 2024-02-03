@@ -36,22 +36,22 @@ Try it out. Add the following to the `Password` Component.
 
 ```JSX
 function Password() {
- const [password, setPassword] = useState('p@$$w0rd')
+  const [password, setPassword] = useState('p@$$w0rd')
  
- return (
- <div>
- <input 
- type="text"
- onChange={(e) => setPassword(e.target.value)}
- value={password}
- />
- <div>
- <button onClick={(e) => {
- generatePassword()
- }}>Generate</button>
- </div>
- </div>
- )
+  return (
+    <div>
+      <input 
+        type="text"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+       />
+       <div>
+         <button onClick={(e) => {
+           generatePassword()
+         }}>Generate</button>
+       </div>
+      </div>
+   )
 }
 ```
 
