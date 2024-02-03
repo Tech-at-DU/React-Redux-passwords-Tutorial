@@ -63,4 +63,4 @@ describe the password strength. Try any or all of these ideas:
 - Set the width and color of the bar
 
 Next: [Local Storage](../P08-Local-Storage)
-Previous: [Adding Names and Passwords](../P06-Actions-and-Reducers)
+Previous: [Actions and Reducers](../P06-Actions-and-Reducers)
