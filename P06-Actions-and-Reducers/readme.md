@@ -1,25 +1,34 @@
+# Redux State 
+
+Redux stores state as a JS object. It divides state into slices. Imagine each slice as a property/key stored on the state object. You can have as many slices as you need. The value for a slice can be any type. 
+
 # Actions and Reducers
 
 Actions and reducers are how Redux handles changes to the application state. You send an action from any component. The action is received by a reducer that makes the change to the state. 
 
-**In redux no change to the store can be made without sending an action to the dispatcher!** 
+**In redux the only way to make a change to state is by sending an action.** 
 
-There are two things that you need to do to see your application state working. You need to display the contents of the password list that is stored in the store. Second, you need to send actions that will add new passwords to the list. 
+Let's walk through the code you added in the previous step. 
 
 ## Adding reducer and actions
 
 ```JS
-import { createSlice } from '@reduxjs/toolkit' // 1
+import { createSlice } from '@reduxjs/toolkit' // 1. import createSlice
 
-// 2
+// 2. Define initial state for this slice
+// This slice will store an array of objects
 const initialState = {
   value: [{ password: 'hello', name: 'test'}],
 }
 
-// 3 Add the password slice
+// 3. Define the passwordsSlice
+// This includes both the action and the reducer!
 export const passwordsSlice = createSlice({
+  // the name of the slice
 	name: 'passwords',
+  // Initial value of this slice
 	initialState,
+  // Reducers and actions
 	reducers: {
 		addPassword: (state, action) => {
 			state.value.push(action.payload)
@@ -27,11 +36,19 @@ export const passwordsSlice = createSlice({
 	}
 })
 
+// 4. Export the actions and reducers
 export const { addPassword } = passwordsSlice.actions
 export default passwordsSlice.reducer
 ```
 
-redux Toolkit uses the term "slice" to represent a piece of state in the store. A slice has actions and reducers. A slice handles one of the values on state. The slice includes an action and a reducer. The action is used to initiate a change to the slice and the reducer receives the action and makes the change. InitialState sets the initial value for a slice. 
+1. Import `createSlice`, you'll use this to create a new slice.
+2. Every slice needs to define it's initial value.
+3. Create and export the slice. Use `createSlice` to create the slice, pass it an object that includes the name of the slice, initial state, and reducers and actions. 
+  - A reducer is a function that will make a change to state. Here the reducer is the function assigned to the key `addPassword`. This function adds a new password to `state.value`, this is where the change to state happens. A reducer function always takes `state` and `action` as parameters!
+  - The action is the property that holds this reducer function, `addPassword` in this example.
+4. Last you need to actions and reducers. Notice here you exported `addPassword` and `passwordSlice.reducer`.
+
+Redux Toolkit uses the term "slice" to represent a piece of state in the store. A slice has actions and reducers. A slice handles one of the values on state. The slice includes an action and a reducer. The action is used to initiate a change to the slice and the reducer receives the action and makes the change. InitialState sets the initial value for a slice. 
 
 Notice that you exported "addPassword" and "passwordSlice.reducer" at the bottom. You will be using these in other parts of the application. 
 
