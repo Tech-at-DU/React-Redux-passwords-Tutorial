@@ -31,11 +31,10 @@ To create this project you will need an understanding of
 5. [Controlled Components](P04-Controlled-Components)
 6. [Redux Toolkit](P05-Redux-Toolkit)
 7. [Actions and Reducers](P06-Actions-and-Reducers)
-8. [Adding names and passwords](P07-Adding-names-and-passwords)
-9. [Password Strength](P08-Password-Strength)
-10. [Local Storage](P09-Local-Storage)
-11. [Styling the Project](P10-Styling-the-Project)
-12. [Pivot Challenges](P11-Pivot-Challenges)
+8. [Password Strength](P07-Password-Strength)
+9. [Local Storage](P08-Local-Storage)
+10. [Styling the Project](P09-Styling-the-Project)
+11. [Pivot Challenges](P10-Pivot-Challenges)
 
 ## Instructor FAQ
 
