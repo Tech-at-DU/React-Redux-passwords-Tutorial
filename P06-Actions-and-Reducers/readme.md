@@ -174,5 +174,5 @@ You used `useSelector()` to get `state` from the Redux store. This has all of ou
 
 - https://redux-toolkit.js.org/tutorials/quick-start
 
-Next: [Adding Names and Passwords](../P07-Password-Strength)
+Next: [Password Strength](../P07-Password-Strength)
 Previous: [Redux Toolkit](../P05-Redux-Toolkit)
