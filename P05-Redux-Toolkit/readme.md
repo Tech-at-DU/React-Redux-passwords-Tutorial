@@ -63,6 +63,33 @@ Create a new folder for the passwords slice: `features/passwords`.
 
 Now create a file that will define the actions and reducers for this slice: `features/passwords/passwordsSlice.js`
 
+Add the following to `passwordsSlice.js`:
+
+```JS
+import { createSlice } from '@reduxjs/toolkit' // 1
+
+// 2
+const initialState = {
+  value: [{ password: 'hello', name: 'test'}],
+}
+
+// 3
+export const passwordsSlice = createSlice({
+	name: 'passwords',
+	initialState,
+	reducers: {
+		addPassword: (state, action) => {
+			state.value.push(action.payload)
+		}
+	}
+})
+
+export const { addPassword } = passwordsSlice.actions
+export default passwordsSlice.reducer
+```
+
+This block of code will be explained in the next section. 
+
 **What's an action?**
 
 An action is a "message" that your application can send that will trigger a change in the application state. 
