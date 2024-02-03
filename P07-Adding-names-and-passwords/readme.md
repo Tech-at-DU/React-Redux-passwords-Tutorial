@@ -1,6 +1,15 @@
 # Adding names and passwords
 
-Edit `src/Password.js`, and declare a new state variable name. 
+To add the name and password to your redux store/state you you'll use the `useDispatch` hook along with an action. 
+
+Edit `src/Password.js`, import `useDispatch` and `addPassword` at the top. 
+
+```JS
+import { useDispatch } from 'react-redux'
+import { addPassword } from './features/passwords/passwordsSlice'
+```
+
+Now declare a new state variable name. 
 
 ```JS
 ...
