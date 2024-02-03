@@ -125,3 +125,5 @@ If your app is compiling without error it should be working even though it won't
 
 -
 
+Next: [Actions and Reducers](../P06-Actions-and-Reducers)
+
