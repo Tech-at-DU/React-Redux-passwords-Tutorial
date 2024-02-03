@@ -219,3 +219,4 @@ Now edit `src/Password.js`. See if you can make these changes on your own! You n
 - Use the controlled component pattern, set the value of the new input to the value of the new state variable, and update the new state variable in the `onChange` handler. 
 - In the call to `addPassword()` change the argument from a string to an object with name and password properties. 
 
+Next: [Adding Names and Passwords](../P07-Adding-names-and-passwords)
