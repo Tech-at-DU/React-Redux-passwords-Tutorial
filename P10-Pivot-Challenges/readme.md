@@ -37,3 +37,5 @@ Add an option that filters the list displaying only items that are completed, no
 Add a date to each to-do item. Show a formatted date next to each item. 
 
 Add an option to sort the list by date. 
+
+Previous: [Styling the Project](../P10-Styling-the-Project)

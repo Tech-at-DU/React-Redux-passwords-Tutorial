@@ -245,3 +245,4 @@ Generate a password made up of 4 to 8 words. For example:
   - [Array Like Objects](http://www.nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/)
 
 Next: [Controlled Components](../P04-Controlled-Components)
+Previous: [Create React App](../P02-Create-React-App)

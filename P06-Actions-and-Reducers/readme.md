@@ -1,16 +1,18 @@
 # Redux State 
 
-Redux stores state as a JS object. It divides state into slices. Imagine each slice as a property/key stored on the state object. You can have as many slices as you need. The value for a slice can be any type. 
+Redux stores state as a JS object. It divides state into slices. Imagine each slice as a property/key stored on the state object. You can create as many slices as you need. The value for a slice can be any type. 
 
 # Actions and Reducers
 
-Actions and reducers are how Redux handles changes to the application state. You send an action from any component. The action is received by a reducer that makes the change to the state. 
+Actions and reducers are how Redux handles changes to the application state. You send an action from any component to the dispatcher. The action is received by a reducer that makes the change to the state. 
 
 **In redux the only way to make a change to state is by sending an action.** 
 
-Let's walk through the code you added in the previous step. 
+Think about that last sentence for a moment. Unlike other systems you may have created where state can be changed from anywhere, in redux state can only be changed by an action. This part of the reason that redux exists, and why it is called a "redictable state container". 
 
 ## Adding reducer and actions
+
+Let's walk through the code you added in the previous step. 
 
 ```JS
 import { createSlice } from '@reduxjs/toolkit' // 1. import createSlice
@@ -42,19 +44,11 @@ export default passwordsSlice.reducer
 ```
 
 1. Import `createSlice`, you'll use this to create a new slice.
-2. Every slice needs to define it's initial value.
-3. Create and export the slice. Use `createSlice` to create the slice, pass it an object that includes the name of the slice, initial state, and reducers and actions. 
-  - A reducer is a function that will make a change to state. Here the reducer is the function assigned to the key `addPassword`. This function adds a new password to `state.value`, this is where the change to state happens. A reducer function always takes `state` and `action` as parameters!
-  - The action is the property that holds this reducer function, `addPassword` in this example.
-4. Last you need to actions and reducers. Notice here you exported `addPassword` and `passwordSlice.reducer`.
-
-Redux Toolkit uses the term "slice" to represent a piece of state in the store. A slice has actions and reducers. A slice handles one of the values on state. The slice includes an action and a reducer. The action is used to initiate a change to the slice and the reducer receives the action and makes the change. InitialState sets the initial value for a slice. 
-
-Notice that you exported "addPassword" and "passwordSlice.reducer" at the bottom. You will be using these in other parts of the application. 
-
-Here you added the "passwords" slice, "addPassword" is the action, it's a function you can call, this function is the reducer. A reducer always takes state and an action and makes chanegs to state in its code block.  
-
-For this application there is a single reducer: `addPassword`. The function takes the name and password as strings, it creates a new password object and adds to the list of passwords that are stored on state. 
+2. Every slice needs to define it's initial value. Notice that the inisital value is added to the options object when creating the slice. You could set this there but it was easier to define the vairable in this case. 
+3. Create and export the slice. Use `createSlice` to create the slice, pass it an options object that includes the `name` of the slice, `initialState`, and `reducers` and actions. 
+    - A reducer is a function that will make a change to state. Here the reducer is the function assigned to the property `addPassword`. This function adds a new password to `state.value`, this is where the change to state happens. A reducer function always takes `state` and `action` as parameters! The action here is an o bject with a property `patload` which is data that comes from where the action originates. (I'll point it out when we get there!)
+    - The action is the property that holds this reducer function, `addPassword` in this example.
+4. Last you need export to actions and reducers. Notice here you exported `addPassword` (action) and `passwordSlice.reducer` (reducer).
 
 ## Working with State 
 
@@ -88,43 +82,29 @@ function Password() {
  ...
 ```
 
-Make a button that will save the current password to the Redux store. You can place this button at the JSX block returned from the component. 
+Make a button that will save the current password to the Redux store. 
+
+The arguments you provide to the action are attached to the payload of the action, look for payload on the [previous page](../P05-Redux-Toolkit#Creating-Slices-exporting-Actions-and-Reducers). 
+
+We are passing an object with name and password, these should be values reflected in your inputs. Notice this matches what is shown in the `initialState` in the [previous page](../P05-Redux-Toolkit#Creating-Slices-exporting-Actions-and-Reducers). 
 
 ```JS
 ...
 
 <button
-  onClick={() => dispatch(addPassword(password))}
+  onClick={() => dispatch(addPassword({ name, password }))}
 >Save</button>
 
 ...
 ```
 
-Notice here you are handling the button click by calling the `addPassword()` function and passing the `password` as an argument. The value returned from this is passed to the `dispatch()` function as an argument. 
+**Study the code snippet until you recognize what this paragraph is describing before moving on!** Compare what is here with the code in `passwordsSlice.js` make some connections these are working together!
 
-**Study the code snippet until you recognize what this paragraph is describing before moving on!**
-
-Testing your code at this stage should create and add new passwords to the list, as if by magic! Notice there is no direct connection between the `Password` component and the `PasswordsList` components!
-
-Your data is being passed to Redux where the reducer you wrote, as part of the `PasswordsSlice`. 
-
-When the store updates you're components are notified and they update. When updating the `PasswordsList` component gets the list of passwords from the store with `useSelector()`, which returns `state`. 
-
-**Read those last three paragraphs again, maybe three times!** 
+Testing your code at this stage should create and add new passwords to the list, as if by magic! **You won't see them yet!** You will display them in the next step!
 
 ## We need more than a string! 
 
-Saving the password string is not very useful. It would be better to also save a name or label along with the password string. 
-
-To do this you'll need to store objects instead of strings in the passwords array. 
-
-Currently `passwords` looks like: 
-
-```JS
-['helloPassword', 'p@$$w0rd', 'dgZAdTA9']
-```
-
-You need it to look like this: 
+What you are saving to the store looks like this: 
 
 ```JS
 [
@@ -164,18 +144,20 @@ const initialState = {
 
 ## Displaying a list of passwords
 
-Create a new component: `src/PasswordsList.js`, and add the following: 
+To display the passwords list you'll use the `useSelector` hook. This hook takes a callback that returns state (redux store). This is object with properties for each slice. 
+
+Create a new component: `src/PasswordsList.js`. Add the following: 
 
 ```JS
 import { useSelector } from 'react-redux'
 
 function PasswordsList() {
-  const passwords = useSelector(state => state.value)
+  const passwords = useSelector(state => state.passwords.value)
 
   return (
     <ul>
       {passwords.map(password => (
-        <li>{password}</li>
+        <li>{password.name} - {password.password}</li>
       ))}
     </ul>
   )
@@ -184,39 +166,13 @@ function PasswordsList() {
 export default PasswordsList
 ```
 
-This component displays everything in the passwords list stored in our Redux store. 
+This component displays a list of passwords and their values.  
 
-It uses `useSelector()` to get `state` from the Redux store. This has all of our application state. Since this component is only concerned with the `passwords` list we use `state.passwords.value` to get that list. 
+You used `useSelector()` to get `state` from the Redux store. This has all of our application state. You got the passwords slice and the value, which is the list of password objects. 
 
-The rest of the component is standard React and displays the list as `<ul>` and `<li>`. 
+## Resources 
 
-You can test this by updating the `initialState` in `features/passwords/passwordsSlice.js`. Try it for yourself. Add another string here: 
+- https://redux-toolkit.js.org/tutorials/quick-start
 
-```JS
-const initialState = {
- value: ['helloPassword', 'ABCDEF'],
-}
-```
-
-You should see the new item displayed on your page. 
-
-## Test your work
-
-Edit the `src/PasswordsList.js`:
-
-```JS
-passwords.map((password, i) => (
-  <li key={`${i}-item`}>{password.name} : {password.password}</li>
-))
-```
-
-Since each password is now an object with password and name properties we need to adjust how we get these values. 
-
-Now edit `src/Password.js`. See if you can make these changes on your own! You need to do the following: 
-
-- Add a new input field so we can enter a name
-- Declare a state variable for the name value, use `useState()`
-- Use the controlled component pattern, set the value of the new input to the value of the new state variable, and update the new state variable in the `onChange` handler. 
-- In the call to `addPassword()` change the argument from a string to an object with name and password properties. 
-
-Next: [Adding Names and Passwords](../P07-Adding-names-and-passwords)
+Next: [Adding Names and Passwords](../P07-Password-Strength)
+Previous: [Redux Toolkit](../P05-Redux-Toolkit)

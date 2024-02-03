@@ -66,18 +66,17 @@ Now create a file that will define the actions and reducers for this slice: `fea
 Add the following to `passwordsSlice.js`:
 
 ```JS
-import { createSlice } from '@reduxjs/toolkit' // 1
+import { createSlice } from '@reduxjs/toolkit' 
 
-// 2
 const initialState = {
   value: [{ password: 'hello', name: 'test'}],
 }
 
-// 3
 export const passwordsSlice = createSlice({
 	name: 'passwords',
 	initialState,
-	reducers: {
+	reducers: { 
+    // Action and reducer
 		addPassword: (state, action) => {
 			state.value.push(action.payload)
 		}
@@ -92,15 +91,15 @@ This block of code will be explained in the next section.
 
 **What's an action?**
 
-An action is a "message" that your application can send that will trigger a change in the application state. 
+An action is a "message" that your application can send that will trigger a change in the application state. In the example above the action is `addPassword`
 
 In practical terms, an action is a function you can call that will trigger a change in the application state. An action might take arguments, these might be new values to store in the Redux store. 
 
 **What's a reducer?** 
 
-A reducer is a function that handles changes to the application state. 
+A reducer is a function that handles changes to the application state. These changes to the redux store. 
 
-A reducer receives an action and uses that action to decide how state will be changed. 
+A reducer receives an action and uses that action to decide how state will be changed. In the sample code the reducer is the function assigned to the `addPassword` property. Notice that this function takes `state` and `action` as parmeters. 
 
 Update `app/store.js`
 
@@ -110,6 +109,7 @@ import passwordsReducer from '../features/passwords/passwordsSlice'
 
 export const store = configureStore({
   reducer: {
+    // passwords slice
     passwords: passwordsReducer
   },
 })
@@ -117,13 +117,17 @@ export const store = configureStore({
 
 With this in place, our application can store and update the list of passwords. It will not make changes to the list yet.
 
+In the code above you are adding a slice to the store. The slice is `passwords`. You could create more actions and reducers and add another slice to manager another "slice" of the store.
+
 ## Testing your work
 
 If your app is compiling without error it should be working even though it won't be doing anything new you can see, yet! In the next step, you'll be able to effects of all of the work you've done here. 
 
 ## Resources
 
--
+- https://redux-toolkit.js.org
+- https://www.freecodecamp.org/news/redux-and-redux-toolkit-for-beginners/
 
 Next: [Actions and Reducers](../P06-Actions-and-Reducers)
+Previous: [Controlled Components](../P04-Controlled-Components)
 

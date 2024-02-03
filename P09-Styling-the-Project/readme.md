@@ -228,4 +228,5 @@ Should work the same as the previous two examples.
 
 -
 
-Next: [Pivot Challenges](../P11-Pivot-Challenges)
+Next: [Pivot Challenges](../P10-Pivot-Challenges)
+Previous: [Local Storage](../P08-Local-Storage)

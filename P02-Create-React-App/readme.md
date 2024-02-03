@@ -47,3 +47,4 @@ You can also create folders inside the `src` folder to organize your files.
 - https://github.com/facebook/create-react-app
 
 Next: [Generating Passwords](../P03-Generating-Passwords)
+Previous: [Getting Started](../P01-Getting-Started/)
