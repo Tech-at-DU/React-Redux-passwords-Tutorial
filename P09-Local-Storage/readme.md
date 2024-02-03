@@ -139,3 +139,5 @@ In the callback, you're calling `saveState` and passing the state as an argument
 ## Resouces 
 
 - https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+Mext: [Styling the Project](../(P10-Styling-the-Project)
