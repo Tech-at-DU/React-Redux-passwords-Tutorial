@@ -62,5 +62,5 @@ describe the password strength. Try any or all of these ideas:
 - Show a bar that expands with a higher score
 - Set the width and color of the bar
 
-
+Next: [Local Storage](../P09-Local-Storage)
 
