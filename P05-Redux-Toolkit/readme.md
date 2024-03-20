@@ -72,7 +72,7 @@ const initialState = {
   value: [{ password: 'hello', name: 'test'}],
 }
 
-export const passwordsSlice = createSlice({
+const passwordsSlice = createSlice({
 	name: 'passwords',
 	initialState,
 	reducers: { 
